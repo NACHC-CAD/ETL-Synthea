@@ -27,7 +27,6 @@
 #'
 #'@export
 
-
 LoadEventTables <- function(connectionDetails,
                             cdmSchema,
                             syntheaSchema,
