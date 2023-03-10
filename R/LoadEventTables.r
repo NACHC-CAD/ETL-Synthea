@@ -54,16 +54,6 @@ LoadEventTables <- function(connectionDetails,
   if (!(syntheaVersion %in% supportedSyntheaVersions))
     stop("Invalid Synthea version specified. Currently \"2.7.0\" and \"3.0.0\" are supported.")
 
-  # Create Vocabulary mapping tables
-  CreateVocabMapTables(connectionDetails, cdmSchema, cdmVersion, sqlOnly)
-
-  # Perform visit rollup logic and create auxiliary tables
-  CreateVisitRollupTables(connectionDetails,
-                          cdmSchema,
-                          syntheaSchema,
-                          cdmVersion,
-                          sqlOnly)
-
   if (!sqlOnly) {
     conn <- DatabaseConnector::connect(connectionDetails)
   } else {
