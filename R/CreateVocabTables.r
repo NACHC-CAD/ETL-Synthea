@@ -1,4 +1,28 @@
-
+#' @title Load CDM VocabMap and VisitRollup tables
+#'
+#' @description This function loads CDM VocabMap and VisitRollup tables.
+#'
+#' @param connectionDetails  An R object of type\cr\code{connectionDetails} created using the
+#'                                     function \code{createConnectionDetails} in the
+#'                                     \code{DatabaseConnector} package.
+#' @param cdmSchema  The name of the database schema that will contain the CDM.
+#'                                     Requires read and write permissions to this database. On SQL
+#'                                     Server, this should specifiy both the database and the schema,
+#'                                     so for example 'cdm_instance.dbo'.
+#' @param syntheaSchema  The name of the database schema that contain the Synthea
+#'                                     instance.  Requires read and write permissions to this database. On SQL
+#'                                     Server, this should specifiy both the database and the schema,
+#'                                     so for example 'cdm_instance.dbo'.
+#' @param cdmVersion The version of your CDM.  Currently "5.3" and "5.4".
+#' @param syntheaVersion The version of Synthea used to generate the csv files.
+#'                       Currently "2.7.0" and "3.0.0" are supported.
+#' @param cdmSourceName	The source name to insert into the CDM_SOURCE table.  Default is Synthea synthentic health database.
+#' @param cdmSourceAbbreviation The source abbreviation to insert into the CDM_SOURCE table.  Default is Synthea.
+#' @param cdmHolder The holder to insert into the CDM_SOURCE table.  Default is OHDSI
+#' @param cdmSourceDescription The description of the source data.  Default is generic Synthea description.
+#' @param sqlOnly A boolean that determines whether or not to perform the load or generate SQL scripts. Default is FALSE.
+#'
+#'@export
 
 CreateVocabTables <- function(connectionDetails,
                             cdmSchema,
